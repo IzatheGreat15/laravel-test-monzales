@@ -18,7 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
     ];
@@ -32,6 +33,11 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    // define one-to-many relationship with stores
+    public function stores(){
+        return $this->hasMany(Store::class);
+    }
 
     /**
      * The attributes that should be cast.
