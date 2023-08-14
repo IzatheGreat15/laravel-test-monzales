@@ -1,4 +1,3 @@
-<!-- resources/views/auth/login.blade.php -->
 @extends('layouts.app')
 
 @section('content')
@@ -7,7 +6,9 @@
             <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 w-full">
                 <form method="POST" action="{{ route('login') }}" class="w-full max-w-sm mx-auto py-6 px-4">
                     @csrf
-
+                    @foreach ($errors->all() as $error)
+                        <p class="text-red-500 text-xs mt-1">{{ $error }}</p>
+                    @endforeach
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
                         <input type="email" name="email" id="email" required autofocus class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
