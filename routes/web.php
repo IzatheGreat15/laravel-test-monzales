@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// guest routes
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', function () {
         return view('auth.login');
@@ -28,10 +29,10 @@ Route::middleware(['guest'])->group(function () {
     });
 });
 
+// protected routes
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
+    Route::get('/dashboard', [StoreController::class, "index"]);
+    Route::get('/stores/{id}', [StoreController::class, 'show'])->name('show');
 });
 
 require __DIR__.'/auth.php';

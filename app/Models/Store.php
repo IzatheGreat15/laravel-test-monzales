@@ -16,6 +16,6 @@ class Store extends Model
 
     // define one-to-many relationship with users
     public function user(){
-        return $this->belongsTo(User::class, 'owner_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

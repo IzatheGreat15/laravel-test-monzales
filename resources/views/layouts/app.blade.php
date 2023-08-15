@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel Test</title>
 
-    <!-- Include Tailwind CSS via CDN -->
+    <!-- Include Tailwind CSS -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-slate-800">
