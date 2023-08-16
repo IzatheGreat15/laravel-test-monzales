@@ -118,14 +118,14 @@
             
         }
 
-        function openDeleteModal(e, row, storeId){
+        function openDeleteModal(row, storeId){
             const modal = document.getElementById('delete_modal');
             modal.style.display = 'flex';
 
             row--;
 
             const storeForm = document.getElementById('delete_form');
-            storeForm.action = "{{ route('delete', '') }}/" + storeId;
+            storeForm.action = "{{ route('delete', ['id' => ':id']) }}".replace(':id', storeId);
 
             const tableRows = document.querySelectorAll('tbody tr');
             if(tableRows.length > 0){
